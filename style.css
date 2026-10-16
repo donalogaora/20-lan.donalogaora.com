@@ -1,0 +1,365 @@
+/* ===============================
+   ROOT
+   =============================== */
+:root {
+  --footer-gap: 5px;
+  --footer-height: 52px; /* adjust if footer text wraps */
+}
+
+/* ===============================
+   MAIN
+   =============================== */
+html {
+	height: -webkit-fill-available;
+}
+
+body {
+  padding-bottom: calc(
+    var(--footer-height) + 
+    var(--footer-gap) + 
+    env(safe-area-inset-bottom)
+  );
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(assets/background.webp);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	z-index: -1;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: Arial, sans-serif;
+	overflow-x: hidden;
+}
+
+/* ===============================
+   NAVIGATION BAR
+   =============================== */
+.nav-bar {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+
+	list-style-type: none;
+	margin: 0;
+	padding: 0 20px;
+	text-align: right;
+}
+
+.nav-bar li {
+	display: inline-block;
+}
+
+.page-current {
+	background-color: #5d5d5d;
+	color: #ffffff;
+}
+
+.page-current:hover {
+	box-shadow: 6px 5px 3px #ff0000;
+}
+
+.page-other {
+	background-color: #ffffff;
+	color: #ff0000;
+} 
+
+.page-other:hover {
+	background-color: #ff0000;
+	color: #ffffff;
+	box-shadow: 6px 5px 3px #ffffff;
+}
+
+.page-current, .page-other {
+	font-family: "Arial Black", sans-serif;
+	font-size: 14px;  
+	border-radius: 10px;
+	padding: 0.625rem 1.25rem; /* Proportional padding */
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	box-shadow: 6px 5px 3px #ff0000;
+	font-weight: bold;
+	margin: 0.3125rem; /* Responsive margin */
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+.footer {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--footer-gap) + env(safe-area-inset-bottom));
+  background-color: #333333;
+  border-radius: 20px;
+  padding: 5px 20px;
+  white-space: nowrap;
+  max-width: 90%;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+  z-index: 1000;
+}
+
+.footer-spacer {
+  height: calc(
+    52px + 
+    5px + 
+    env(safe-area-inset-bottom)
+  );
+}
+
+/* ===============================
+   TEXT
+   =============================== */
+/*Page Header*/
+.text-1 {
+	color: white;
+	text-align: center;
+	font-family: "Impact", sans-serif;
+	font-size: 48px;
+}
+
+/*Section Titles*/
+.text-2 {
+	color: white;
+	text-align: center;
+	font-family: "Arial Black", sans-serif;
+	font-size: 27.344px; /* Use to be 27.344px */
+	text-transform: uppercase;
+}
+
+/*Platform Name*/
+.text-3 {
+    font-size: 21.875px; /* Text size */
+    font-weight: bold; /* Bold text */
+    color: #6e6d68; /* Text color */
+    -webkit-text-stroke: 1px #24252b; /* Outline effect */
+    text-align: left; /* Align text to the left */
+    margin: 0; /* No margin to align with description */
+    text-decoration: none;
+}
+
+/*Social Tag*/
+.text-4 {
+    font-size: 17.5px; /* Text size */
+    color: #FF0000;
+    text-align: left; /* Align text to the left */
+    margin: 0; /* No margin for better alignment */
+    margin-top: 5px; /* Add slight space below the title */
+    text-decoration: none;
+}
+
+/*Main Text*/
+.text-5 {
+	color: white;
+	text-align: center;
+	font-family: "Arial Black", sans-serif;
+	font-size: 14px;
+}
+
+.text-5-1 {
+	color: #FF0000;
+	text-decoration: none;
+}
+
+.text-5-1:visited {
+	color: #FF0000;
+}
+
+.text-5-1:hover {
+	text-decoration: underline;
+}
+
+.text-5-2 {
+  
+}
+
+/*Smaller Text*/
+.text-6 {
+  font-size: 11.2px;
+}
+
+.text-6-1 {
+  font-size: 11.2px;
+  color: #FF0000;
+  text-decoration: none;
+}
+
+.text-6-1:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 420px) {
+  .text-2 {
+    font-size: 21px;
+  }
+}
+
+/* ===============================
+   BIO CARD
+   =============================== */
+.bio-card {
+    width: 375px; /* Fixed width */ /*Use to be 400px */
+    height: 120px; /* Fixed height for the card */
+    background-color: #ffffff; /* White background */
+    border-radius: 50px; /* Fully rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden;
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    /*margin: 0 auto;*/
+	margin: 0;
+    position: relative;
+    align-items: center; /* Vertically center the content */
+    padding: 10px; /* Padding inside the card */
+    gap: 10px; /* Space between the image and content */
+    box-sizing: border-box; /* Ensure padding doesn't affect size */
+}
+
+@media (max-width: 420px) {
+  .bio-card {
+    width: 320px;
+	height: 100px;
+  }
+}
+
+.bio-card-image {
+    flex-shrink: 0; /* Prevent the image from shrinking */
+    width: 100px; /* Fixed width for the image */
+    height: 100px; /* Fixed height for the image */
+    border-radius: 50%; /* Make the image fully rounded */
+    object-fit: cover; /* Ensure proper scaling */
+    padding: 5px; /* Padding around the image */
+    background-color: #f0f0f0; /* Optional: Background around the image */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the image */
+}
+
+@media (max-width: 420px) {
+  .bio-card-image {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.bio-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: flex-start; /* Align text to the left */
+    padding: 10px; /* Inner padding for the content */
+    flex: 1; /* Let the content take the remaining space */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.bio-card-title {
+    font-size: 20px; /* Text size */
+    font-weight: bold; /* Bold text */
+    color: #6e6d68; /* Text color */
+    -webkit-text-stroke: 1px #24252b; /* Outline effect */
+    text-align: left;
+    margin: 0;
+    text-decoration: none;
+}
+
+@media (max-width: 420px) {
+  .bio-card-title {
+    font-size: 14px;
+  }
+}
+
+.bio-card-description {
+    font-size: 14px;
+    color: #FF0000;
+    text-align: left;
+    margin: 0;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+@media (max-width: 420px) {
+	.bio-card-description {
+		font-size: 8px;
+  }
+}
+
+.text-block {
+	width: 375px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+@media (max-width: 500px) {
+  .text-block {
+    width: 375px;
+  }
+}
+
+@media (min-width: 850px) {
+    .text-block {
+        width: 770px;
+    }
+}
+
+@media (min-width: 1250px) {
+    .text-block {
+        width: 1165px;
+    }
+}
+
+@media (min-width: 1650px) {
+    .text-block {
+        width: 1580px;
+    }
+}
+
+@media (min-width: 2050px) {
+    .text-block {
+        width: 1975px;
+    }
+}
+
+.bio-card-stack {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 20px;
+    margin: 0 auto;
+}
+
+@media (min-width: 850px) {
+    .bio-card-stack {
+        grid-template-columns: repeat(2, 375px);
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1250px) {
+    .bio-card-stack {
+        grid-template-columns: repeat(3, 375px);
+    }
+}
+
+@media (min-width: 1650px) {
+    .bio-card-stack {
+        grid-template-columns: repeat(4, 375px);
+    }
+}
+
+@media (min-width: 2050px) {
+    .bio-card-stack {
+        grid-template-columns: repeat(5, 375px);
+    }
+}
